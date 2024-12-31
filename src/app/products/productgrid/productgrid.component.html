@@ -1,0 +1,19 @@
+<div class="grid-container">
+    <div class="header">
+      <h2 class="title">{{headerText}}</h2>
+      <p class="count">
+        Showing {{filteredProducts.length}} products
+      </p>
+    </div>
+    
+    <div class="product-grid">
+      <app-productcard
+        *ngFor="let product of filteredProducts"
+        [product]="product"
+      ></app-productcard>
+    </div>
+    
+    <div *ngIf="filteredProducts.length === 0" class="empty-state">
+      <p>No products found in this category.</p>
+    </div>
+  </div>

@@ -1,0 +1,229 @@
+/* Header Styling */
+.header {
+    /* position: sticky; */
+    top: 0;
+    z-index: 50;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Container */
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  a:hover{
+    cursor: pointer;
+  }
+  /* Logo */
+  .logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    position: relative;
+    flex: 1;
+    max-width: 600px;
+    transition: transform 0.2s ease;
+  }
+  
+  .search-bar input {
+    width: 95%;
+    padding: 0.75rem 2.75rem 0.75rem 1.25rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 50px;
+    outline: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+  
+  .search-bar input:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  }
+  
+  .search-bar.focused {
+    transform: scale(1.02);
+  }
+  
+  .search-bar lucide-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+  }
+  
+  /* Right Section */
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  /* Profile */
+  .profile {
+    position: relative;
+  }
+  
+  .profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #374151;
+    transition: color 0.2s ease;
+  }
+  
+  .profile-btn:hover {
+    color: #ef4444;
+  }
+  
+  .profile-btn lucide-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .profile-btn span{
+    padding-top: 8%;
+  }
+  
+  /* Profile Dropdown */
+  .profile-dropdown {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    width: 180px;
+    overflow: hidden;
+    box-sizing: border-box; 
+  }
+  
+  /* Dropdown Items */
+  .dropdown-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    color: #4b5563;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box; 
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f9fafb;
+    color: #ef4444;
+  }
+  
+  button.dropdown-item {
+    all: unset; 
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%; 
+    text-align: left; 
+    box-sizing: border-box; 
+  }
+  
+  button.dropdown-item:hover {
+    background-color: #f9fafb;
+    color: #ef4444;
+  }
+  
+  /* Sign Out Styling */
+  .sign-out {
+    color: #ef4444;
+    border-top: 1px solid #e5e7eb;
+    width: 100%; 
+  }
+  /* .my-icon {
+    width:5px;
+    height: 5px; 
+  } */
+  
+  
+  
+  /* Cart */
+  .cart {
+    position: relative;
+    color: #374151;
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+  }
+  
+  .cart:hover {
+    color: #ef4444;
+  }
+  
+  .cart lucide-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.75rem;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0 0.25rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+      gap: 1rem;
+    }
+    
+    .search-bar {
+      max-width: none;
+    }
+    
+    .profile-btn span {
+      display: none;
+    }
+    
+    .right-section {
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .search-bar {
+      display: none;
+    }
+  }

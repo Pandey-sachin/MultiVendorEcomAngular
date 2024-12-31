@@ -1,0 +1,46 @@
+
+  .no-products {
+    text-align: center;
+    color: #6c757d;
+    font-size: 1rem;
+    margin: 20px 0;
+  }
+  
+  
+  .product-table-container {
+    border: 1px solid #ddd; 
+    background-color: #fff; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    max-height: 500px;
+    overflow-y: auto;  
+  }
+  
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .product-table th {
+    background-color: #fee2e2;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+  }
+  
+  .product-table td {
+    padding: 12px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .product-table tr:hover {
+    background-color: #fee2e2; 
+  }
+  
+  .product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  

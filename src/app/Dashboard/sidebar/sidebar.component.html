@@ -1,0 +1,23 @@
+<aside [class.hidden]="!showSidebar" class="sidebar">
+  <div class="sidebar-content">
+    <div class="user-profile">
+      <div class="user-icon">
+        <i-lucide [img]="userIcon" class="icon" size="45"></i-lucide>
+      </div>
+      <div class="user-info">
+        <h2>{{ (user$|async)?.username || "User" }}</h2>
+        <p>{{(user$|async)?.role || ""}} Dashboard</p>
+      </div>
+    </div>
+
+    <nav>
+      <app-sidebar-item class="sidebar-item"
+        *ngFor="let item of navItems"
+        [item]="item"
+        [isActive]="activeSection === item.id"
+        (itemClick)="onSectionChange(item.id)">
+      </app-sidebar-item>
+    </nav>
+  </div>
+</aside>
+

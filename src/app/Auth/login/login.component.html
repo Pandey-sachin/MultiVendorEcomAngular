@@ -1,0 +1,77 @@
+<div class="login-container">
+  <div class="login-card">
+    <!-- Header -->
+    <div class="login-header">
+      <h2>Welcome back</h2>
+      <p>Please sign in to your account</p>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-container">
+          <lucide-icon [img]="emailIcon"></lucide-icon>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="Enter your email"
+            required
+          >
+        </div>
+        <div class="error-message" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']">
+          Email is required
+        </div>
+        <div class="error-message" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']">
+          Please enter a valid email
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-container">
+          <lucide-icon [img]="lockIcon"></lucide-icon>
+          <input
+            id="password"
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            placeholder="Enter your password"
+            required
+          >
+          
+          <button 
+            type="button" 
+            class="toggle-password"
+            (click)="togglePasswordVisibility()"
+          >
+            <lucide-icon id="eye-icon" [img]="showPassword ? eyeIcon : eyeClosedIcon"></lucide-icon>
+          </button>
+        </div>
+        <div class="error-message" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']">
+          Password is required
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        [disabled]="loginForm.invalid || isLoading"
+        class="submit-button"
+      >
+        <span *ngIf="!isLoading">Sign in</span>
+        <div *ngIf="isLoading" class="spinner"></div>
+      </button>
+
+      <!-- Sign Up Link -->
+      <div class="signup-link">
+        <p>
+          Don't have an account?
+          <a routerLink="/register">Sign up now</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

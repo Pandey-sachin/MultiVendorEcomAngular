@@ -1,0 +1,29 @@
+.stat-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .stat-card-icon {
+    background-color: #fdecea;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+  
+  .stat-card-title {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .stat-card-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111827;
+  }
+  .stat-card:hover{
+    color: red;
+  }

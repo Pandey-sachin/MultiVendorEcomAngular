@@ -1,0 +1,99 @@
+<div class="register-container">
+    <div class="register-box">
+      <div class="header">
+           <img src="/signin.gif" class="icon-large">        
+        <h2>Create Account</h2>
+        <p>Join us today and explore</p>
+      </div>
+  
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <div class="input-container">
+            <lucide-icon [img]="userIcon" class="input-icon"></lucide-icon>
+            <input
+              id="username"
+              type="text"
+              formControlName="username"
+              placeholder="Enter your username"
+            >
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-container">
+            <lucide-icon [img] = "mailIcon" class="input-icon"></lucide-icon>
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              placeholder="Enter your email"
+            >
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-container">
+            <lucide-icon [img]="lockIcon" class="input-icon"></lucide-icon>
+            <input
+              id="password"
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="Enter your password"
+            >
+            <button type="button" class="toggle-password" (click)="togglePassword('password')">
+              <lucide-icon
+                [img]="showPassword ? eyeIcon:eyeOffIcon"
+                class="toggle-icon"
+              ></lucide-icon>
+            </button>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-container">
+            <lucide-icon [img]="lockIcon" class="input-icon"></lucide-icon>
+            <input
+              id="confirmPassword"
+              [type]="showConfirmPassword ? 'text' : 'password'"
+              formControlName="confirmPassword"
+              placeholder="Confirm your password"
+            >
+            <button type="button" class="toggle-password" (click)="togglePassword('confirmPassword')">
+              <lucide-icon
+              [img]="showConfirmPassword ? eyeIcon:eyeOffIcon"
+                class="toggle-icon"
+              ></lucide-icon>
+            </button>
+          </div>
+          <span class="error-message" *ngIf="registerForm.errors?.['mismatch']">
+            Passwords do not match
+          </span>
+        </div>
+  
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" formControlName="role">
+            <option value="user">user</option>
+            <option value="seller">seller</option>
+          </select>
+        </div>
+  
+        <button type="submit" class="submit-button" [disabled]="!registerForm.valid">
+          <span *ngIf="!isLoading">
+            Create Account
+            <lucide-icon [img]="arrowIcon" class="button-icon"></lucide-icon>
+          </span>
+           <div *ngIf="isLoading" class="spinner"></div>
+        </button>
+  
+        <p class="sign-in-link">
+          Already have an account? <a routerLink="/login">Sign in</a>
+        </p>
+      </form>
+    </div>
+  </div>
+  

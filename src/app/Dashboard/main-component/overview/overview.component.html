@@ -1,0 +1,42 @@
+<div *ngIf="!isLoading && !error" class="dashboard-container">
+    <div class="dashboard-grid">
+      <app-statcard 
+        [icon]="packageIcon"
+        [title]="'Total Products'"
+        [value]="stats.totalProducts">
+      </app-statcard>
+  
+      <app-statcard 
+        [icon]="folderIcon"
+        [title]="'Total Categories'"
+        [value]="stats.totalCategories">
+      </app-statcard>
+  
+      <app-statcard 
+        [icon]="trinagleIcon"
+        [title]="'Low Stock Items'"
+        [value]="stats.lowStockItems">
+      </app-statcard>
+  
+      <app-statcard 
+        [icon]="rupeeIcon"
+        [title]="'Average Price'"
+        [value]="'₹' + stats.averagePrice.toFixed(2)">
+      </app-statcard>
+  
+      <app-statcard 
+        [icon]="cartIcon"
+        [title]="'Total Inventory Value'"
+        [value]="'₹' + stats.totalValue.toFixed(2)">
+      </app-statcard>
+  
+      <app-statcard 
+        [icon]="percentIcon"
+        [title]="'Items on Discount'"
+        [value]="stats.itemsOnDiscount">
+      </app-statcard>
+    </div>
+  </div>
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+  <app-error-display *ngIf="error" [error]="error"></app-error-display>
+  

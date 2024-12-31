@@ -1,0 +1,68 @@
+<header class="header">
+    <div class="container">
+      
+        <!-- Logo -->
+        <a routerLink="/" class="logo">
+          <app-logo/>
+        </a>
+  
+        <!-- Search Bar -->
+        <div class="search-bar" [ngClass]="{ 'focused': searchFocused }">
+          <input
+            type="text"
+            placeholder="Search products..."
+            (focus)="searchFocused = true"
+            (blur)="searchFocused = false"
+          />
+          <lucide-icon [img]="SearchIcon"></lucide-icon>
+        </div>
+  
+        <!-- Right Section -->
+        <div class="right-section">
+          <!-- Profile -->
+          <div class="profile" #profileRef>
+            <button (click)="toggleProfileDropdown()" class="profile-btn">
+              <lucide-icon [img]="UserIcon" class="my-icon"></lucide-icon>
+              <span>{{ (user$ | async)?.username || 'Account' }}</span>
+              <lucide-icon [img]="DownIcon" class="my-icon"></lucide-icon>
+            </button>
+  
+            <!-- Profile Dropdown -->
+            <div *ngIf="isProfileOpen" class="profile-dropdown">
+              <ng-container *ngIf="(user$|async)?.username; else signInTemplate">
+                <!-- Vendor Panel -->
+                <a
+                  *ngIf="(user$ | async)?.role?.includes('seller')"
+                  routerLink="/vendor-panel"
+                  class="dropdown-item"
+                >
+                  <lucide-icon [img]="SettingsIcon" class="my-icon"></lucide-icon>
+                  Vendor Panel
+                </a>
+  
+                <!-- Sign Out -->
+                <button (click)="handleLogOut()" class="dropdown-item sign-out">
+                  <lucide-icon [img]="LogoutIcon" class="my-icon"></lucide-icon>
+                  Sign Out
+                </button>
+              </ng-container>
+  
+              <!-- Sign In Template -->
+              <ng-template #signInTemplate>
+                <a routerLink="/login" class="dropdown-item">
+                    <lucide-icon [img]="LoginIcon" ></lucide-icon>
+                  Sign In
+                </a>
+              </ng-template>
+            </div>
+          </div>
+  
+          <!-- Cart -->
+          <a routerLink="/cart" class="cart">
+            <lucide-icon [img]="ShoppingCartIcon" class="my-icon"></lucide-icon>
+            <span class="cart-count">{{ cartCount || 0 }}</span>
+          </a>
+        </div>
+    </div>
+  </header>
+  

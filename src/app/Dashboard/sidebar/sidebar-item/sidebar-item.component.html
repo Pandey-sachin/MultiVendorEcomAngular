@@ -1,0 +1,11 @@
+<button
+  type="button"
+  class="sidebar-item"
+  [class.active]="isActive"
+  (click)="onClick()">
+  <i-lucide 
+    [img]="item.icon"
+    class="icon">
+  </i-lucide>
+  <span class="label">{{ item.label }}</span>
+</button>

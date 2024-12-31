@@ -1,0 +1,52 @@
+<div>
+    <div *ngIf="isLoading">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+  
+    <div *ngIf="error">
+      <app-error-display [error]="error"></app-error-display>
+    </div>
+  
+    <div *ngIf="editingProductId">
+      <app-add-product [productId]="editingProductId" mode="edit"></app-add-product>
+    </div>
+  
+    <div *ngIf="!editingProductId && !isLoading && !error">
+      <div *ngIf="!products || products.length === 0" class="no-products">
+        <h1>All Products</h1>
+        <p>No products found.</p>
+      </div>
+  
+      <div *ngIf="products && products.length > 0" class="product-table-container">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products">
+                <td>{{product.pname}}</td>
+                <td>{{product.category}}</td>
+                <td>₹{{product.price}}</td>
+                <td>{{ product.discount || 0 }}%</td>
+                <td>{{product.quantity}}</td>
+                <td>
+                  <button (click)="handleEdit(product.productId!)" class="edit-button">
+                    <i-lucide [img]="penIcon" class="pen-icon"></i-lucide>
+                    <span>Edit</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

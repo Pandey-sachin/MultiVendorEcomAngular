@@ -1,0 +1,25 @@
+<main class="main-content">
+  <div class="content-container">
+    <div class="mobile-nav">
+      <button (click)="onToggleSidebar()">
+        <i-lucide [img]="showSidebar ? xIcon : menuIcon"></i-lucide>
+        {{ showSidebar ? 'Close' : 'Menu' }}
+      </button>
+    </div>
+
+    <div class="page-title">
+      <i-lucide [img]="getCurrentNavItem()?.icon"></i-lucide>
+      <h1>{{ getCurrentNavItem()?.label }}</h1>
+    </div>
+
+    <ng-container [ngSwitch]="activeSection">
+      <app-overview *ngSwitchCase="'overview'"></app-overview>
+      <app-view-products *ngSwitchCase="'products'"></app-view-products>
+      <app-add-product *ngSwitchCase="'add-product'"></app-add-product>
+      <app-update-product *ngSwitchCase="'edit-product'"></app-update-product>
+      <app-delete-product *ngSwitchCase="'delete-product'"></app-delete-product>
+      <app-overview *ngSwitchDefault></app-overview>
+    </ng-container>
+  </div>
+</main>
+

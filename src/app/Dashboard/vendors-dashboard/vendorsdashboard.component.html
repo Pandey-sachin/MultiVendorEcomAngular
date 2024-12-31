@@ -1,0 +1,20 @@
+<div class="vendor-panel">
+  <div class="container">
+    <div class="content-wrapper">
+      <app-sidebar class="app-sidebar"
+        [navItems]="navItems"
+        [showSidebar]="showSidebar"
+        [activeSection]="activeSection"
+        (sectionChange)="onSectionChange($event)">
+      </app-sidebar>
+
+      <app-main-component class="app-main-component"
+        [navItems]="navItems"
+        [showSidebar]="showSidebar"
+        [activeSection]="activeSection"
+        (toggleSidebar)="toggleSidebar()">
+      </app-main-component>
+    </div>
+  </div>
+</div>
+

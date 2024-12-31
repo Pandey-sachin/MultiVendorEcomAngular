@@ -1,0 +1,25 @@
+<div class="banner-container">
+    <div class="banner-wrapper" [style.transform]="getTransform()">
+      <div *ngFor="let banner of banners" class="banner-slide">
+        <img [src]="banner.image" [alt]="banner.title" class="banner-image">
+        <div class="banner-overlay">
+          <div class="banner-content">
+            <h2 class="banner-title">{{banner.title}}</h2>
+            <p class="banner-description">{{banner.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <button class="control-button prev-button" (click)="prevBanner()" aria-label="Previous banner">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    
+    <button class="control-button next-button" (click)="nextBanner()" aria-label="Next banner">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>

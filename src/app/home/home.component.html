@@ -1,0 +1,27 @@
+<div class="home-container">
+    <app-tagline/>
+    <app-banner/>
+    <div class="content-container">
+        <app-categorynav
+          [products]="products"
+          [activeCategory]="activeCategory"
+          (categoryChange)="handleSetCategory($event)">
+        </app-categorynav>
+    
+        <ng-container *ngIf="error ">
+          <app-error-display [error]="error"></app-error-display>
+        </ng-container>
+    
+        <ng-container *ngIf="isLoading; else productGrid">
+          <app-loading-spinner
+          text="Loading products"></app-loading-spinner>
+        </ng-container>
+    
+        <ng-template #productGrid>
+          <app-productgrid
+            [products]="products"
+            [activeCategory]="activeCategory">
+          </app-productgrid>
+        </ng-template>
+      </div>
+</div>

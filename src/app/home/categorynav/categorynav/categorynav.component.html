@@ -1,0 +1,9 @@
+<div class="category-nav">
+    <button
+      *ngFor="let category of categories"
+      (click)="onCategoryClick(category)"
+      [class.active]="activeCategory === category"
+      class="category-button">
+      {{ category }} ({{ getCategoryStats(category) }})
+    </button>
+  </div>
